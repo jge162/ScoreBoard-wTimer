@@ -66,7 +66,7 @@ module Seven_segment_LED_Display_Controller(
                  seconds <= seconds - 1;//decrement clock
         else if (seconds == 0) begin    //when clock == 0
                  seconds <= 59;         //set value to 59
-                 minutes <= minutes - 1;//decrement mm
+                 minutes <= minutes - 1;//decrement mm only if sec == 0
         end 
         else if (pause)                 //pause clock
             seconds=seconds;  
@@ -75,7 +75,7 @@ module Seven_segment_LED_Display_Controller(
             
         end
    
-    always @(posedge clock or negedge reset)
+    always @(posedge clock or negedge reset)// refresh rate for leds 
     begin 
         if  (reset==0)
             refresh_counter <= 0;
@@ -132,7 +132,7 @@ module Seven_segment_LED_Display_Controller(
             // the third digit of the 16-bit number
                 end
         3'b111: begin
-            Anode_Activate = 8'b01111111; 
+            Anode_Activate = 8'b01111111; // leading bit is zero. So turn on first led. 
             // activate LED8 and Deactivate LED2, LED3, LED1, LED5, LED6, LED7, LED4
                 LED_BCD = (team_1 % 10);
             // the fourth digit of the 16-bit number    

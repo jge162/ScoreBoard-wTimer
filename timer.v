@@ -161,7 +161,7 @@ always @(posedge slow_clock)
 begin
     if(reset_points) begin //reset team scores here
         team_1 = 7'b0000000; //set values to zero
-        team_2 = 7'b0000000;
+        team_2 = 7'b0000000; //set values to see here too
         end
         
        if (one_point)  

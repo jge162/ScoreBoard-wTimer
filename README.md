@@ -2,6 +2,11 @@
 Completed Fall 2022
 Final project created a score board along with keeping scores for two teams
 
+![Total Files](https://img.shields.io/github/directory-file-count/jge162/ScoreBoard-wTimer-in-Verilog?color=4078c0&style=for-the-badge)
+![File Size](https://img.shields.io/github/repo-size/jge162/ScoreBoard-wTimer-in-Verilog?color=4078c0&style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/jge162/ScoreBoard-wTimer-in-Verilog?color=4078c0&style=for-the-badge)
+
+
 
 # Screen shot of FPGA board 
 

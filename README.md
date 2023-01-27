@@ -7,7 +7,7 @@ Final project created a score board along with keeping scores for two teams
 ![Stars](https://img.shields.io/github/stars/jge162/ScoreBoard-wTimer-in-Verilog?color=4078c0&style=for-the-badge)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/jge162/ScoreBoard-wTimer-in-Verilog?color=red&label=Closed%20Pull%20requests&logo=GitHub&style=for-the-badge)
 
-[![HitCount](https://hits.dwyl.com/Jge162/{project}.svg?style=flat-square)](http://hits.dwyl.com/Jge162/{ScoreBoard-wTimer})
+[![HitCount](https://hits.dwyl.com/Jge162/{ScoreBoard-wTimer}.svg?style=flat-square)](http://hits.dwyl.com/Jge162/{ScoreBoard-wTimer})
 
 # Screen shot of FPGA board 
 

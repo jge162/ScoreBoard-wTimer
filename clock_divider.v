@@ -2,7 +2,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 // school: CSUF
 // Engineers: Jeremy, Duy, Spencer
-// 
 // Create Date: 11/16/2021 07:26:26 PM
 // Design Name: Basket ball score board
 // Module Name: timer, scoreboard

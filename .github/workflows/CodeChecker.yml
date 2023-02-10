@@ -67,8 +67,14 @@ jobs:
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
     #
     - run: |
-        echo "Run, Build Application using script"
-        ./build/sh
+       echo "Install required dependencies"
+       sudo apt-get update
+       sudo apt-get install iverilog -y
+       sudo apt-get install vvp -y
+
+    - run: |
+       echo "Run, Build Application using script"
+       ./build/sh
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2

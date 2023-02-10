@@ -69,7 +69,8 @@ jobs:
     - run: |
         echo "Install required dependencies"
         sudo apt-get update
-        sudo apt-get install modelsim
+        sudo apt-get install iverilog
+        sudo apt-get install verilator
 
     - run: |
        echo "Run, Build Application using script"

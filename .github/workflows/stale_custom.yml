@@ -22,8 +22,8 @@ jobs:
       if: steps.check-for-stale-issues.outputs.result
       id: mark-stale-issues
       run: |
-        const daysUntilStale = 5;
-        const daysUntilClose = 10;
+        const daysUntilStale = 1; # testing 
+        const daysUntilClose = 2; # testing 
         const exemptLabels = ["pinned", "security"];
         const staleLabel = "wontfix";
         const markComment = "This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.";

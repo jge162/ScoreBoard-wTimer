@@ -35,7 +35,12 @@ jobs:
         echo "Run, Build Application using script"
         ./build/sh
 
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: verilog
+
     - name: Perform verilog Analysis
       uses: github/codeql-action/analyze@v2
       with:
-        languages: verilog
+        category: "/language:verilog"

@@ -1,0 +1,25 @@
+name: Build and Test
+
+on: [push]
+
+env:
+  PROJECT_NAME: ScoreBoard-wTimer
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Install Required Dependencies
+      run: |
+        echo "Install required dependencies"
+        sudo apt-get update
+        sudo apt-get install iverilog vvp
+
+    - name: Run, Build Application using script
+      run: |
+        echo "Run, Build Application using script"
+        ./build/build.sh

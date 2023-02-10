@@ -67,13 +67,6 @@ jobs:
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
     #
     - run: |
-       echo "Install required dependencies"
-       sudo apt-get update
-       sudo apt-get install iverilog -y
-       sudo apt-get install vvp -y
-       sudo apt-cache search vvp
-
-    - run: |
        echo "Run, Build Application using script"
        ./build/sh
 

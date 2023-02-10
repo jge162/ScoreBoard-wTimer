@@ -1,0 +1,36 @@
+name: verilog
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - run: |
+        echo "Install required dependencies"
+        sudo apt-get update
+        sudo apt-get install iverilog
+        sudo apt-get install verilator
+
+    - run: |
+        echo "Set executable permission on script file"
+        chmod +x build/sh
+
+    - run: |
+        echo "Run, Build Application using script"
+        ./build/sh
+
+    - name: Perform verilog Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        languages: verilog

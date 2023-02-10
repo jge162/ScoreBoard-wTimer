@@ -1,17 +1,80 @@
-# Number of days of inactivity before an issue becomes stale
-daysUntilStale: 5
-# Number of days of inactivity before a stale issue is closed
-daysUntilClose: 10
-# Issues with these labels will never be considered stale
-exemptLabels:
-  - pinned
-  - security
-# Label to use when marking an issue as stale
-staleLabel: wontfix
-# Comment to post when marking an issue as stale. Set to `false` to disable
-markComment: >
-  This issue has been automatically marked as stale because it has not had
-  recent activity. It will be closed if no further activity occurs. Thank you
-  for your contributions.
-# Comment to post when closing a stale issue. Set to `false` to disable
-closeComment: false
+name: Stale Issue Management
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check for Stale Issues
+      uses: actions/bin/filter@v1
+      with:
+        args: issue-list
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Mark Stale Issues
+      uses: actions/github-script@0.9.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: steps.check-for-stale-issues.outputs.result
+      id: mark-stale-issues
+      run: |
+        const daysUntilStale = 5;
+        const daysUntilClose = 10;
+        const exemptLabels = ["pinned", "security"];
+        const staleLabel = "wontfix";
+        const markComment = "This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.";
+        const closeComment = false;
+
+        const issues = JSON.parse(steps.check-for-stale-issues.outputs.result);
+
+        for (const issue of issues) {
+          const updatedAt = new Date(issue.updated_at);
+          const now = new Date();
+          const daysSinceLastUpdate = (now - updatedAt) / (1000 * 60 * 60 * 24);
+
+          if (daysSinceLastUpdate >= daysUntilStale) {
+            const hasExemptLabel = issue.labels.some(label => exemptLabels.includes(label.name));
+
+            if (!hasExemptLabel) {
+              const issueNumber = issue.number;
+
+              // Mark the issue as stale
+              await github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: [staleLabel]
+              });
+
+              if (markComment) {
+                await github.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: markComment
+                });
+              }
+
+              if (daysSinceLastUpdate >= daysUntilClose && closeComment) {
+                // Close the issue
+                await github.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  state: "closed"
+                });
+
+                await github.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: closeComment
+                });
+              }
+            }
+          }
+        }

@@ -6,8 +6,9 @@ PROJECT_NAME="ScoreBoard-wTimer"
 # Define the list of Verilog files to be included in the project
 VERILOG_FILES="clock_divider.v constraints.v topModule.v"
 
-# Compile the Verilog files into a gate-level netlist
-vlog -work work $VERILOG_FILES
+# Compile the Verilog files into an executable
+iverilog -o $PROJECT_NAME.out $VERILOG_FILES
 
-# Simulate the design using ModelSim
-vsim -c -do "run -all; quit" work.topModule
+# Run the simulation
+./$PROJECT_NAME.out
+

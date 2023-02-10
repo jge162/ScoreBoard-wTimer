@@ -4,7 +4,7 @@
 PROJECT_NAME="ScoreBoard-wTimer"
 
 # Define the list of Verilog files to be included in the project
-VERILOG_FILES="clock_divider.v"
+VERILOG_FILES="clock_divider.v topModule.v"
 
 # Compile the Verilog files into an executable
 iverilog -o $PROJECT_NAME.out $VERILOG_FILES

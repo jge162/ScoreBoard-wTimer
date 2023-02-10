@@ -9,5 +9,8 @@ VERILOG_FILES="clock_divider.v constraints.v topModule.v"
 # Compile the Verilog files into a gate-level netlist
 iverilog -o $PROJECT_NAME.vvp $VERILOG_FILES
 
-# Simulate the design using the generated vvp file
-vvp $PROJECT_NAME.vvp
+# Generate a VCD file from the simulation
+vvp -n $PROJECT_NAME.vvp -vcd
+
+# Open the generated VCD file in gtkwave
+gtkwave $PROJECT_NAME.vcd

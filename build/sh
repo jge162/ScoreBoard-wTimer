@@ -9,6 +9,6 @@ VERILOG_FILES="ClockDivider.v TopModule.v"
 # Compile the Verilog files into an executable
 iverilog -o $PROJECT_NAME.out $VERILOG_FILES
 
-# Run the simulation
+# Run the simulation for scripts
 ./$PROJECT_NAME.out
 

@@ -6,7 +6,7 @@ Project was completed with Duy and Spencer.
 ![File Size](https://img.shields.io/github/repo-size/jge162/ScoreBoard-wTimer-in-Verilog?color=4078c0&style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/jge162/ScoreBoard-wTimer-in-Verilog?color=4078c0&style=for-the-badge)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/jge162/ScoreBoard-wTimer-in-Verilog?color=red&label=Closed%20Pull%20requests&logo=GitHub&style=for-the-badge)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/jge162/ScoreBoard-wTimer/main?logo=green&style=flat-square)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/jge162/ScoreBoard-wTimer/main?logo=green&style=for-the-badge)
 
 # Screen shot of FPGA board 
 

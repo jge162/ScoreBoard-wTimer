@@ -1,6 +1,6 @@
 # Score-Board-FPGA-Verilog
 Fall 2022 Final group project we created a `Score board` which was able to keep scores for two teams, and had a 12:00 minute countdown timer. 
-Project was completed with Duy and Spencer.
+Project was completed with Duy and Spencer
 
 ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/jge162/ScoreBoard-wTimer/verilog_review.yml?branch=main&style=for-the-badge)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/jge162/ScoreBoard-wTimer-in-Verilog?color=red&label=Closed%20Pull%20requests&logo=GitHub&style=for-the-badge)

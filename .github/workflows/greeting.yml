@@ -1,13 +1,7 @@
 name: Greeting
 
-
-
 on: [pull_request_target, issues]
-
-
-
 jobs:
-
   greeting:
 
     runs-on: ubuntu-latest

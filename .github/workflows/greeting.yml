@@ -5,7 +5,7 @@ on:
 jobs:
   create_comment:
     runs-on: ubuntu-latest
-    name: Create a comment
+    name: Greeting
     steps:
       - name: Comment current pull request
         uses: alawiii521/current-pr-comment@v1.0

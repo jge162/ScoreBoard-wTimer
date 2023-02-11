@@ -1,33 +1,14 @@
-name: Greeting
-
-
-
-
-on: [pull_request_target, issues]
-
-
-
+on: 
+  pull_request:
+    types: [opened]
 
 jobs:
-
-  greeting:
-
+  create_comment:
     runs-on: ubuntu-latest
-
-    permissions:
-
-      issues: write
-
-      pull-requests: write
-
+    name: Create a comment
     steps:
-
-    - uses: actions/first-interaction@v1
-
-      with:
-
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-        issue-message: "Thank you for creating issue, please tell us the issue you found 'please be detail' Thank you"
-
-        pr-message: "Thank you for the pull request, we will review changes to see if a merge is warranted. Thank you."
+      - name: Comment current pull request
+        uses: alawiii521/current-pr-comment@v1.0
+        with:
+          comment: "Thank you for Pull request, we will review it when time permits. Thank you!"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

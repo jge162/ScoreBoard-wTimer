@@ -15,7 +15,7 @@ Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html
 Open vivado and import project to IDE
 
 # Connect FPGA board
-Make sure to select correct FPGA board, Nexy's A7
+Make sure to select correct [FPGA board](https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/), Nexy's A7
 
 # Create Bitstream
 Once created you can then load program unto board and 

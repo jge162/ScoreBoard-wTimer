@@ -1,10 +1,25 @@
 # Score-Board-FPGA-Verilog
-Fall 2022 Final group project we created a `Score board` which was able to keep scores for two teams, and had a 12:00 minute countdown timer. 
-Project was completed with Duy and Spencer
-
 ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/jge162/ScoreBoard-wTimer/verilog_review.yml?branch=main&style=for-the-badge)
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/jge162/ScoreBoard-wTimer?style=for-the-badge)
 
+# Meet the team
+
+This project was completed in EGCP 446 Fall 2022 by [Duy](https://github.com/duy301199), [Jeremy](https://github.com/jge162) and [Spencer](https://github.com/5pencerW).
+Spencer contributed the module used to keep team scores, I contributed by
+creating the countdown timer. Lastly, Duy setup the 7 segment. 
+
+# Initial setup
+Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html)
+
+# Download zip folder
+Open vivado and import project to IDE
+
+# Connect FPGA board
+Make sure to select correct FPGA board, Nexy's A7
+
+# Create Bitstream
+Once created you can then load program unto board and 
+test software running.
 
 # Screen shot of FPGA board 
 

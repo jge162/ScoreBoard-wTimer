@@ -7,7 +7,7 @@
 
 This project was completed in EGCP 446 Fall 2022 by [Duy](https://github.com/duy301199), [Jeremy](https://github.com/jge162) and [Spencer](https://github.com/5pencerW).
 Spencer contributed the module used to keep team scores, I contributed by
-creating the countdown timer. Lastly, Duy setup the 7 segment
+creating the countdown timer. Lastly, Duy setup the 7 segment.
 
 # Initial setup
 Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html)

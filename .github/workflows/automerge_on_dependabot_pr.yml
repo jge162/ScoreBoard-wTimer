@@ -1,15 +1,23 @@
-name: Auto-Merge-Dependabot
-on:
-  pull_request_target:
-    types: [labeled]
+name: Dependabot auto-merge
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  enable-auto-merge:
+  dependabot:
     runs-on: ubuntu-latest
-
-    # Specifically check that dependabot (or another trusted party) created this pull-request, and that it has been labelled correctly.
-    if: github.event.pull_request.user.login == 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'dependencies')
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-    - uses: alexwilson/enable-github-automerge-action@main
-      with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: "${{ secrets.WORKFLOW_SECRET }}"
+      - name: Enable auto-merge for Dependabot PRs
+        if: ${{contains(steps.metadata.outputs.dependency-names, 'actions/stale') || contains(steps.metadata.outputs.dependency-names, 'actions/github-script') && steps.metadata.outputs.update-type == 'version-update:semver-major'}}
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.WORKFLOW_SECRET}}

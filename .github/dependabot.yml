@@ -1,7 +1,11 @@
 version: 2
+
 updates:
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'weekly'
-      day: 'friday'
+      interval: "daily"
+      time: "00:00"
+    labels:
+      - "dependencies"
+

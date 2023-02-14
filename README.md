@@ -26,6 +26,6 @@ test software running.
 
 <img width="981" alt="Screen Shot 2023-01-18 at 2 34 40 PM" src="https://user-images.githubusercontent.com/31228460/213310150-10f8d1d6-073c-4136-9665-c977dc508e0f.png">
 
-# License info:
+# License info
 Copyright (c) 2023 Duy, Jeremy and Spencer 
 [MIT License](https://github.com/jge162/ScoreBoard-wTimer/blob/main/License/MIT%20license)

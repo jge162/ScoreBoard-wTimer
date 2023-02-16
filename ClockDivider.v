@@ -1,3 +1,4 @@
+
 module clock_divider(
   input clk,
   input reset,
@@ -21,30 +22,27 @@ module clock_divider(
   end
   
   always @(posedge clk) begin
-    $display("sclk = %b", sclk);
+    $display("count = %d, sclk = %b", count, sclk);
   end
   
 endmodule
 
-module clock_divider_tb;
-  reg clk, reset;
+
+module tb_clock_divider;
+  reg clk;
+  reg reset;
   wire sclk;
   
-  clock_divider uut (
-    .clk(clk),
-    .reset(reset),
-    .sclk(sclk)
-  );
+  clock_divider dut(.clk(clk), .reset(reset), .sclk(sclk));
   
   initial begin
-    clk = 1'b0;
-    reset = 1'b0;
+    clk = 0;
+    reset = 1;
     
-    #5 reset = 1'b1;
-    #10 reset = 1'b0;
-    #50 $finish;
+    #10 reset = 0;
+    
+    #100 $finish;
   end
   
   always #5 clk = ~clk;
-  
 endmodule

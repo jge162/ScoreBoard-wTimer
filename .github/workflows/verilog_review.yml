@@ -25,6 +25,7 @@ jobs:
     - run: |
         echo "Set executable permission on script file"
         chmod +x build/sh
+        chmod +w ScoreBoard-wTimer.out
 
     - run: |
         echo "Run, Build Application using script"

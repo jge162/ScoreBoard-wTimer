@@ -39,12 +39,6 @@ module Seven_segment_LED_Display_Controller(
     reg [5:0] minutes;   // mm:00
 
     clock_divider DUT (.clk(clock),.reset(reset), .sclk(slow_clock)); // instantiating here
-
-    always @(posedge clk)
-    begin
-    // Verilog code for your logic goes here
-        $display("TopMOdule Here%d", count);
-    end
     
     always @(posedge clock or negedge reset)
     begin

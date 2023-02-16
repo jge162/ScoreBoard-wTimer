@@ -1,8 +1,9 @@
 # Score-Board-FPGA-Verilog:
 
-![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/jge162/ScoreBoard-wTimer/verilog_review.yml?branch=main&style=for-the-badge)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/jge162/ScoreBoard-wTimer?style=for-the-badge)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jge162/ScoreBoard-wTimer?logo=github&style=for-the-badge)
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/jge162/ScoreBoard-wTimer/verilog_review.yml)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/jge162/ScoreBoard-wTimer)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jge162/ScoreBoard-wTimer)
+![GitHub](https://img.shields.io/github/license/jge162/ScoreBoard-wTimer?color=purple)
 
 # Meet the team:
 

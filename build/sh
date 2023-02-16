@@ -1,5 +1,30 @@
 #!/bin/bash
 
+echo "Install required dependencies"
+sudo apt-get update
+sudo apt-get install iverilog
+sudo apt-get install verilator
+
+echo "Set executable permission on script file"
+chmod +x build/sh
+chmod +x ./ClockDivider.v
+
+echo "Run, Build Application using script"
+./build/sh
+
+echo "Run iverilog"
+iverilog -o ClockDivider.vvp ClockDivider.v
+
+echo "Run simulation"
+vvp ClockDivider.vvp
+
+echo "Dump VCD"
+echo "0\nrun\nquit" | gtkwave dump.vcd
+
+echo "Save simulation results to output.txt"
+pwd
+tee output.txt < dump.vcd
+
 # Define the name of the project
 PROJECT_NAME="ClockDivider"
 

@@ -1,4 +1,4 @@
-module clock_divider(
+module clock_divide(
   input clk,
   input reset,
   output reg sclk
@@ -26,12 +26,12 @@ module clock_divider(
   
 endmodule
 
-module tb_clock_divider;
+module tb_clock_divide;
   reg clk;
   reg reset;
   wire sclk;
   
-  clock_divider dut(.clk(clk), .reset(reset), .sclk(sclk));
+  clock_divide dut(.clk(clk), .reset(reset), .sclk(sclk));
   
   initial begin
     clk = 0;

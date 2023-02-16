@@ -12,3 +12,7 @@ iverilog -o $PROJECT_NAME.out $VERILOG_FILES
 # Run the simulation for scripts
 ./$PROJECT_NAME.out
 
+# Print a message indicating that the script has finished running
+echo "Script has finished running."
+
+

@@ -7,7 +7,7 @@ PROJECT_NAME="ClockDivider"
 VERILOG_FILES="./ClockDivider.v"
 
 # Compile the Verilog files into an executable
-iverilog -o $PROJECT_NAME.out $VERILOG_FILES
+iverilog -o ClockDivider.out ./ClockDivider.v
 
 # Run the simulation
 vvp $PROJECT_NAME.out

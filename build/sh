@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Define the name of the project
-PROJECT_NAME="ScoreBoard-wTimer"
+PROJECT_NAME=""
 
 # Define the list of Verilog files to be included in the project
-VERILOG_FILES="ClockDivider.v TopModule.v TopModuleTB.v"
-
+VERILOG_FILES="TopModuleTB.v"
+# ClockDivider.v TopModule.v 
 # Compile the Verilog files into an executable
 iverilog -o $PROJECT_NAME.out $VERILOG_FILES
 

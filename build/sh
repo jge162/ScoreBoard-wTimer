@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define the name of the project
-PROJECT_NAME="ClockDivider"
+PROJECT_NAME="TopModule"
 
 # Define the list of Verilog files to be included in the project
-VERILOG_FILES="ClockDivider.v"
+VERILOG_FILES="TopModule.v"
 
 # Compile the Verilog files into an executable
 iverilog -o $PROJECT_NAME $VERILOG_FILES

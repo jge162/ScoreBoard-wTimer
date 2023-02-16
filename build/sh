@@ -1,18 +1,16 @@
 #!/bin/bash
 
 # Define the name of the project
-PROJECT_NAME="ClockDivider"
+PROJECT_NAME="ScoreBoard-wTimer"
 
 # Define the list of Verilog files to be included in the project
 VERILOG_FILES="ClockDivider.v"
-# ClockDivider.v TopModule.v 
-# Compile the Verilog files into an executable
-iverilog -o $PROJECT_NAME.v $VERILOG_FILES
 
-# Run the simulation for scripts
-./$PROJECT_NAME.v
+# Compile the Verilog files into an executable
+iverilog -o $PROJECT_NAME.out $VERILOG_FILES
+
+# Run the simulation
+vvp $PROJECT_NAME.out
 
 # Print a message indicating that the script has finished running
 echo "Script has finished running."
-
-

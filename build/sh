@@ -13,4 +13,4 @@ iverilog -o $PROJECT_NAME $VERILOG_FILES
 vvp $PROJECT_NAME
 
 # Print a message indicating that the script has finished running
-echo "Script has finished running."
+echo "Success! Script has finished running. No syntax errors found."

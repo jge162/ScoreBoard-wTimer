@@ -14,20 +14,46 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install required dependencies
+    - name: Install dependencies
       run: |
+        set -x
         sudo apt-get update
-        sudo apt-get install -y iverilog
-        sudo apt-get install -y verilator
+        sudo apt-get install iverilog
+        sudo apt-get install verilator
 
-    - name: Build Application using Icarus Verilog
+    - name: Set permissions
       run: |
+        set -x
+        chmod +x build/sh
+        chmod +x ./ClockDivider.v
+
+    - name: Build application
+      run: |
+        set -x
+        ./build/sh
+
+    - name: Run simulation
+      run: |
+        set -x
         iverilog -o ClockDivider.vvp ClockDivider.v
-
-    - name: Run simulation with VVP
-      run: |
         vvp ClockDivider.vvp
+        echo "Dump VCD"
+        echo "0\nrun\nquit" | gtkwave dump.vcd
+        echo "Save simulation results to output.txt"
+        pwd
+        tee output.txt < dump.vcd
 
-    - name: Create output file
+    - name: Compile Verilog files
       run: |
-        cat dump.vcd > output.txt
+        set -x
+        iverilog -o ClockDivider.out ./ClockDivider.v
+
+    - name: Run simulation
+      run: |
+        set -x
+        vvp ClockDivider.out
+
+    - name: Finish
+      run: |
+        set -x
+        echo "Script has finished running."

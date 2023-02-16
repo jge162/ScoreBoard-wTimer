@@ -22,8 +22,7 @@ echo "Dump VCD"
 echo "0\nrun\nquit" | gtkwave dump.vcd
 
 echo "Save simulation results to output.txt"
-pwd
-tee output.txt < dump.vcd
+sed -n '/#1/s/.*[b|h]\([01x]*\)/\1/p' dump.vcd > output.txt
 
 # Define the name of the project
 PROJECT_NAME="ClockDivider"

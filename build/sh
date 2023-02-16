@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the name of the project
-PROJECT_NAME=""
+PROJECT_NAME="TopModule.v"
 
 # Define the list of Verilog files to be included in the project
 VERILOG_FILES="TopModuleTB.v"

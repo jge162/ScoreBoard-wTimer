@@ -4,14 +4,14 @@ module clock_divider(
   output reg sclk
 );
 
-  reg [31:0] count;
+  reg [31:0] count = 0;
   
   always @(posedge clk or negedge reset) begin
     if (reset == 1'b0) begin
       count <= 32'd0;
       sclk <= 1'b0;
     end else begin
-      if (count == 32'd49999999) begin
+      if (count == 32'd5000000) begin
         count <= 32'd0;
         sclk <= ~sclk;
       end else begin
@@ -25,7 +25,6 @@ module clock_divider(
   end
   
 endmodule
-
 
 module tb_clock_divider;
   reg clk;

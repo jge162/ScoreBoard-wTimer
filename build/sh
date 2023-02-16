@@ -4,7 +4,7 @@
 PROJECT_NAME="TopModule"
 
 # Define the list of Verilog files to be included in the project
-VERILOG_FILES="TopModule.v ClockDivider.v"
+VERILOG_FILES="TopModule.v ClockDivider.v TopModuleTB.v"
 
 # Compile the Verilog files into an executable
 iverilog -o $PROJECT_NAME $VERILOG_FILES

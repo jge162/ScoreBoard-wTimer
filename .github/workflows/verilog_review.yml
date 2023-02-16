@@ -14,20 +14,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install dependencies
+    - name: Install required dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install iverilog
-        sudo apt-get install verilator
+        sudo apt-get install -y iverilog
+        sudo apt-get install -y verilator
 
-    - name: Build and run simulation
+    - name: Build Application using Icarus Verilog
       run: |
-        iverilog -o output.vvp ClockDivider.v tb_clock_divider.v
-        vvp output.vvp > output.txt
-      working-directory: ${{ github.workspace }}
+        iverilog -o ClockDivider.vvp ClockDivider.v
 
-    - name: Save output
-      uses: actions/upload-artifact@v2
-      with:
-        name: simulation-output
-        path: output.txt
+    - name: Run simulation with VVP
+      run: |
+        vvp ClockDivider.vvp
+
+    - name: Create output file
+      run: |
+        cat dump.vcd > output.txt

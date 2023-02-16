@@ -22,8 +22,6 @@ echo "Dump VCD"
 echo "0\nrun\nquit" | gtkwave dump.vcd
 
 echo "Save simulation results to output.txt"
-ls -l
-cat dump.vcd
 pwd
 tee output.txt < dump.vcd
 

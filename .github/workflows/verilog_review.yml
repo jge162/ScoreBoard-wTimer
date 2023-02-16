@@ -14,33 +14,19 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: |
+    - run: |
+        echo "Install required dependencies"
         sudo apt-get update
-        sudo apt-get install -y iverilog
-        sudo apt-get install -y gtkwave
+        sudo apt-get install iverilog
+        sudo apt-get install verilator
 
-    - name: Set executable permission on script file
-      run: |
+    - run: |
+        echo "Set executable permission on script file"
         chmod +x build/sh
-        chmod +x ClockDivider.v
+        chmod +x ./ClockDivider.v
 
-    - name: Build Application using script
-      run: ./build/sh
-
-    - name: Run iverilog
-      run: iverilog -o ClockDivider.vvp ClockDivider.v
-
-    - name: Run simulation
-      run: vvp ClockDivider.vvp
-
-    - name: Dump VCD
-      run: echo "0\nrun\nquit" | gtkwave dump.vcd
-
-    - name: Save simulation results to output.txt
-      run: cp dump.vcd output.txt
-
-    - name: Print completion message
-      run: echo "Script has finished running."
+    - run: |
+        echo "Run, Build Application using script"
+        ./build/sh

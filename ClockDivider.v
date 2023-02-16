@@ -16,3 +16,27 @@ module clock_divider(
   end
   
 endmodule
+
+
+module testbench;
+  reg clk = 0;
+  always #5 clk = ~clk;
+
+  reg reset = 1;
+  wire sclk;
+
+  clock_divider dut(
+    .clk(clk),
+    .reset(reset),
+    .sclk(sclk)
+  );
+
+  initial begin
+    #10 reset = 0;
+  end
+
+  always @(posedge clk) begin
+    $display("sclk = %b", sclk);
+  end
+
+endmodule

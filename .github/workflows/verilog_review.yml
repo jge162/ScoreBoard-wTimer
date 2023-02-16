@@ -14,20 +14,20 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - run: |
-        echo "Install required dependencies"
+    - name: Install required dependencies
+      run: |
         sudo apt-get update
-        sudo apt-get install iverilog
-        sudo apt-get install verilator
+        sudo apt-get install -y iverilog
+        sudo apt-get install -y verilator
 
-    - run: |
-        echo "Set executable permission on script file"
+    - name: Set executable permission on script file
+      run: |
         chmod +x build/sh
         chmod +x ./ClockDivider.v
 
-    - run: |
-        echo "Run, Build Application using script"
+    - name: Run, Build Application using script
+      run: |
         ./build/sh
-
+        cat ClockDivider.out > output.txt

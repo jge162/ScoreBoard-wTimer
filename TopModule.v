@@ -57,6 +57,24 @@ module Seven_segment_LED_Display_Controller(
     
     always @(posedge clock)
     begin
+    if (reset_score) begin //reset score here
+        minutes <= 12; // mm is set to 12:00
+        seconds <= 00;//default to 12:00 min once enabled
+    end                         
+    else if (one_second_enable == 1) // starts one second counter for timer 
+        seconds <= seconds - 1;//decrement clock
+    else if (seconds == 0) begin    //when clock == 0
+        seconds <= 59;         //set value to 59
+        minutes <= minutes - 1;//decrement mm only if sec == 0
+    end 
+    else if (pause) //pause clock
+        seconds=seconds; // pause occurs because p = p
+    else if (minutes ==0) //reset MM:00 to 11 for wrap
+        minutes <= 11;         
+    end
+    /*
+    always @(posedge clock)
+    begin
     
      if(reset_score) begin //reset score here
             minutes <= 12; // mm is set to 12:00
@@ -73,7 +91,7 @@ module Seven_segment_LED_Display_Controller(
         else if ( minutes ==0)//reset MM:00 to 11 for wrap
             minutes <= 11; 
             
-        end
+        end*/
    
     always @(posedge clock or negedge reset)// refresh rate for leds 
     begin 

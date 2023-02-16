@@ -1,5 +1,3 @@
-name: Verilog Build and Analysis
-
 on:
   push:
     branches:
@@ -16,18 +14,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install required dependencies
+    - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y iverilog
-        sudo apt-get install -y verilator
+        sudo apt-get install iverilog
+        sudo apt-get install verilator
 
-    - name: Set executable permission on script file
+    - name: Build and run simulation
       run: |
-        chmod +x build/sh
-        chmod +x ./ClockDivider.v
+        iverilog -o output.vvp ClockDivider.v tb_clock_divider.v
+        vvp output.vvp > output.txt
+      working-directory: ${{ github.workspace }}
 
-    - name: Run, Build Application using script
-      run: |
-        ./build/sh
-        cat ClockDivider.out > output.txt
+    - name: Save output
+      uses: actions/upload-artifact@v2
+      with:
+        name: simulation-output
+        path: output.txt

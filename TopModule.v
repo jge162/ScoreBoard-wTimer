@@ -207,4 +207,4 @@ begin
         if(team_2 >= 7'b1100100)//reset score board at 100
             team_2 = 7'b0000000;//back to zero
     end
-endmodule //end module here
+//endmodule //end module here

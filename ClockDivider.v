@@ -1,23 +1,18 @@
-module test;
-  reg clk, reset;
-  wire out;
+module clock_divider(
+  input clk,
+  output reg sclk
+);
 
-  // Instantiate the clock divider module
-  clock_divider uut (
-    .clk(clk),
-    .reset(reset),
-    .sclk(out)
-  );
-
-  // Drive the clock signal
-  always #5 clk = ~clk;
-
-  // Drive the reset signal
-  initial begin
-    reset = 1;
-    #10 reset = 0;
+  reg [31:0] count;
+  
+  always @(posedge clk) begin
+    if (count == 31'd0) begin
+      sclk <= ~sclk;
+      count <= 31'd1;
+    end else begin
+      count <= count + 1;
+    end
+    $display("sclk = %b", sclk);
   end
-
-  // Display the output
-  always @(posedge clk) $display("out = %b", out);
+  
 endmodule

@@ -4,6 +4,7 @@ echo "Install required dependencies"
 sudo apt-get update
 sudo apt-get install iverilog
 sudo apt-get install verilator
+sudo apt-get install gtkwave
 
 echo "Set executable permission on script file"
 chmod +x build/sh
@@ -12,29 +13,14 @@ chmod +x ./ClockDivider.v
 echo "Run, Build Application using script"
 ./build/sh
 
-echo "Run iverilog"
-iverilog -o ClockDivider.vvp ClockDivider.v
-
-echo "Run simulation"
+echo "Compile and simulate Verilog files"
+iverilog -o ClockDivider.vvp ClockDivider.v tb_clock_divider.v
 vvp ClockDivider.vvp
 
-echo "Dump VCD"
-echo "0\nrun\nquit" | gtkwave dump.vcd
+echo "Convert VCD to FST file"
+vcd2fst dump.vcd dump.fst
 
-echo "Save simulation results to output.txt"
-sed -n '/#1/s/.*[b|h]\([01x]*\)/\1/p' dump.vcd > output.txt
+echo "View simulation results using gtkwave"
+gtkwave dump.fst &
 
-# Define the name of the project
-PROJECT_NAME="ClockDivider"
-
-# Define the list of Verilog files to be included in the project
-VERILOG_FILES="./ClockDivider.v"
-
-# Compile the Verilog files into an executable
-iverilog -o ClockDivider.out ./ClockDivider.v
-
-# Run the simulation
-vvp $PROJECT_NAME.out
-
-# Print a message indicating that the script has finished running
 echo "Script has finished running."

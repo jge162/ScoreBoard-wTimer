@@ -1,4 +1,3 @@
-
 module clock_divider(
   input clk,
   input reset,
@@ -12,7 +11,7 @@ module clock_divider(
       count <= 32'd0;
       sclk <= 1'b0;
     end else begin
-      if (count == 32'd9000000) begin
+      if (count == 32'd49999999) begin
         count <= 32'd0;
         sclk <= ~sclk;
       end else begin

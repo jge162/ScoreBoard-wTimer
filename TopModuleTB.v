@@ -94,4 +94,3 @@ module Seven_segment_LED_Display_Controller_TB();
         #1000;
         $display("Minutes: %d, Seconds: %d", Anode_Activate, LED_out);
         assert(Anode_Activate == 12 && LED_out == 0); // Expected
-        //

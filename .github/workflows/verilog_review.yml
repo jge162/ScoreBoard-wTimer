@@ -1,3 +1,5 @@
+name: Verilog Build and Analysis
+
 on:
   push:
     branches:
@@ -16,44 +18,29 @@ jobs:
 
     - name: Install dependencies
       run: |
-        set -x
         sudo apt-get update
-        sudo apt-get install iverilog
-        sudo apt-get install verilator
+        sudo apt-get install -y iverilog
+        sudo apt-get install -y gtkwave
 
-    - name: Set permissions
+    - name: Set executable permission on script file
       run: |
-        set -x
         chmod +x build/sh
-        chmod +x ./ClockDivider.v
+        chmod +x ClockDivider.v
 
-    - name: Build application
-      run: |
-        set -x
-        ./build/sh
+    - name: Build Application using script
+      run: ./build/sh
 
-    - name: Run simulation
-      run: |
-        set -x
-        iverilog -o ClockDivider.vvp ClockDivider.v
-        vvp ClockDivider.vvp
-        echo "Dump VCD"
-        echo "0\nrun\nquit" | gtkwave dump.vcd
-        echo "Save simulation results to output.txt"
-        pwd
-        tee output.txt < dump.vcd
-
-    - name: Compile Verilog files
-      run: |
-        set -x
-        iverilog -o ClockDivider.out ./ClockDivider.v
+    - name: Run iverilog
+      run: iverilog -o ClockDivider.vvp ClockDivider.v
 
     - name: Run simulation
-      run: |
-        set -x
-        vvp ClockDivider.out
+      run: vvp ClockDivider.vvp
 
-    - name: Finish
-      run: |
-        set -x
-        echo "Script has finished running."
+    - name: Dump VCD
+      run: echo "0\nrun\nquit" | gtkwave dump.vcd
+
+    - name: Save simulation results to output.txt
+      run: cp dump.vcd output.txt
+
+    - name: Print completion message
+      run: echo "Script has finished running."

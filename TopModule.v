@@ -71,7 +71,7 @@ module Seven_segment_LED_Display_Controller(
     else if (minutes ==0) //reset MM:00 to 11 for wrap
         minutes <= 11;         
     end
-    /*
+    
     always @(posedge clock)
     begin
     
@@ -90,7 +90,7 @@ module Seven_segment_LED_Display_Controller(
         else if ( minutes ==0)//reset MM:00 to 11 for wrap
             minutes <= 11; 
             
-        end*/
+        end
    
     always @(posedge clock or negedge reset)// refresh rate for leds 
     begin 

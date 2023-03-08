@@ -1,0 +1,30 @@
+name: Auto Close PRs
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+jobs:
+  check_pr:
+    name: Check PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Close PR
+        id: close_pr
+        if: ${{ github.event.pull_request.user.login != 'jge162' }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const body = `This pull request is being automatically closed because we do not accept external contributions to this repository.`;
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+            await github.rest.pulls.update({
+              ...context.repo,
+              pull_number: context.payload.pull_request.number,
+              state: 'closed'
+            });

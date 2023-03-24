@@ -32,7 +32,7 @@ jobs:
         id: bump_version
       - name: Create release
         # uses: softprops/action-gh-release@v1
-        uses: jge162/create-release@main
+        uses: jge162/create-release@2.1.1
         with:
           files: |
             build/*

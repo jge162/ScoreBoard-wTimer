@@ -10,7 +10,7 @@ jobs:
     if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'create release') && github.event.pull_request.user.login == 'jge162'
     steps:
       - name: Checkout code
-        uses: jge162/Action-workflows@main
+        uses: jge162/Action-RunScript@2.0.0
       - name: Build and test code
         run: |
           # Build and test code here
@@ -31,7 +31,7 @@ jobs:
         id: bump_version
       - name: Create release
         # uses: softprops/action-gh-release@v1
-        uses: jge162/create-release@2.2.1
+        uses: jge162/create-release@2.1.1
         with:
           files: |
             build/*

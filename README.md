@@ -14,7 +14,7 @@ Spencer contributed the module used to keep team scores, I contributed by
 creating the countdown timer. Lastly, Duy setup the 7 segment!
 
 ### Initial setup:
-Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html)
+>Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html)
 
 ### Download zip folder:
 >Open vivado and import project to IDE
@@ -25,6 +25,8 @@ Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html
 ### Create Bitstream:
 >Once created you can then load program unto board and 
 test software running.
+
+---
 
 ### Screen shot of FPGA board: 
 

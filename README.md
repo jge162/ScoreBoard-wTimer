@@ -7,7 +7,7 @@
 
 ---
 
-# Demo [Link](https://www.dropbox.com/s/dr5ubh1w7s17ddi/446_final_project.mov?dl=0)
+# Demo [Video Link](https://www.dropbox.com/s/dr5ubh1w7s17ddi/446_final_project.mov?dl=0)
 
 ### Meet the team:
 

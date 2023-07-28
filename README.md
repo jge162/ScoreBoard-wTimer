@@ -35,5 +35,5 @@ test software running.
 ---
 
 ### License info:
->Copyright (c) 2023 Duy, Jeremy and Spencer -> 
+>Copyright ©2023 Duy, Jeremy and Spencer -> 
 [MIT License](https://github.com/jge162/ScoreBoard-wTimer/blob/main/License/MIT%20license)

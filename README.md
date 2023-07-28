@@ -17,13 +17,13 @@ creating the countdown timer. Lastly, Duy setup the 7 segment!
 Install [Xilinx Vivado](https://www.xilinx.com/products/design-tools/vivado.html)
 
 ### Download zip folder:
-Open vivado and import project to IDE
+>Open vivado and import project to IDE
 
 ### Connect FPGA board:
-Make sure to select correct [FPGA board](https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/), Nexy's A7
+>Make sure to select correct [FPGA board](https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/), Nexy's A7
 
 ### Create Bitstream:
-Once created you can then load program unto board and 
+>Once created you can then load program unto board and 
 test software running.
 
 ### Screen shot of FPGA board: 

@@ -1,4 +1,4 @@
-# Score-Board-FPGA-Verilog:
+# Scoreboard FPGA Verilog:
 
 ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/jge162/ScoreBoard-wTimer/verilog_review.yml)
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/jge162/ScoreBoard-wTimer)

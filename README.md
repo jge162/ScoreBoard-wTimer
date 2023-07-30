@@ -1,4 +1,4 @@
-# Scoreboard FPGA Verilog:
+# Scoreboard with Countdown Timer FPGA, deisgned in Verilog using Vivado:
 
 ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/jge162/ScoreBoard-wTimer/verilog_review.yml)
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/jge162/ScoreBoard-wTimer)

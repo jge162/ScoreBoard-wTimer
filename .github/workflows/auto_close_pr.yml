@@ -13,7 +13,7 @@ jobs:
       - name: Close PR
         id: close_pr
         if: ${{ github.event.pull_request.user.login != 'jge162' && github.event.pull_request.user.login != 'dependabot[bot]' }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
